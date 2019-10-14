@@ -40,6 +40,7 @@ public class ResourceHandlerConfig extends WebMvcConfigurerAdapter {
                 .resourceChain(true)
                 .addResolver(versionResourceResolver);
 
+
     }
 
     @Bean

@@ -5,15 +5,27 @@
   Time: 20:06 น.
   To change this template use File | Settings | File Templates.
 -->
+
 <html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:spring="http://www.springframework.org/tags"
-      xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+      xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 
 <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat"/>
 
 <jsp:directive.page contentType="text/html;charset=UTF-8"/>
 <jsp:directive.page pageEncoding="UTF-8"/>
+
+
+<jsp:useBean class="java.util.Date" id="now" scope="request"/>
+<c:set var="url">${pageContext.request.requestURL}</c:set>
+<c:set var="user" value="${pageContext.request.userPrincipal.name}" scope="request"/>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" scope="request"/>
+<!--<c:set var="currentURL">${fn:substring(url, 0, fn:length(url) - fn:length(pageContext.request.requestURI))}</c:set>-->
+
+<c:set var="appVersion" value="${appVersion}" scope="session"/>
+<spring:url value="/resources/images/user.png" var="image_user_url"  scope="session"/>
+
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
@@ -28,9 +40,9 @@
 <tiles:insertAttribute name="header" ignore="true"/>
 <tiles:insertAttribute name="menu" ignore="true"/>
 <section class="content">
-    <div class="container-fluid">
+    <!--<div class="container-fluid">-->
         <tiles:insertAttribute name="body" ignore="true"/>
-    </div>
+    <!--</div>-->
 </section>
 <!--<tiles:insertAttribute name="footer" ignore="true"/>-->
 
@@ -46,6 +58,23 @@
 <script src="${demo_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
 
 <script type="text/javascript">
+    var image_user_url='${image_user_url}'
+    var currentURL='${currentURL}'
+    var contextPath='${contextPath}';
+
+    const session = {
+        user: "${user}",
+        context: '/' + (window.location.pathname.split('/')[1]),
+    }
+
+    $('#leftsidebar li.active').removeClass('active');
+    var currentUrl=window.location.pathname.toString();//location.pathname.split("/")[1]
+    $.each($('#leftsidebar').find('a'),function () {
+        var href=$(this).attr('href');
+        if(currentUrl==href){
+            $(this).closest('li').addClass('active');
+        }
+    })
 
 </script>
 </body>

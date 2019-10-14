@@ -1,5 +1,6 @@
 package com.soft.app.spring.security;
 
+import com.soft.app.constant.ApplicationConstant;
 import com.soft.app.entity.app.AppUser;
 import com.soft.app.entity.app.AppUserOuAuth;
 import com.soft.app.repository.AppUserOuAuthRepository;
@@ -93,16 +94,22 @@ public class CustomUserDetailsService implements UserDetailsService, Authenticat
 
     @Override
     public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
-        System.out.println("当前的用户名是：" + token.getName());
+//        System.out.println("当前的用户名是：" + token.getName());
+        LOGGER.info("LOGIN : {}",token.getName());
         /*这里我为了方便，就直接返回一个用户信息，实际当中这里修改为查询数据库或者调用服务什么的来获取用户信息*/
         UserInfo userInfo = new UserInfo();
-        userInfo.setUsername("admin");
-        userInfo.setName("admin");
+        userInfo.setUsername(token.getName());
+        userInfo.setName(token.getName());
         Set<AuthorityInfo> authorities = new HashSet<AuthorityInfo>();
         AuthorityInfo authorityInfo = new AuthorityInfo("TEST");
         authorities.add(authorityInfo);
         userInfo.setAuthorities(authorities);
         authorizeUtil.setUserName(userInfo.getUsername());
+
+        //set session data
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        attr.getRequest().getSession(true).setAttribute("appVersion",ApplicationConstant.APPLICATION_VERSION);
+
         return userInfo;
     }
 }

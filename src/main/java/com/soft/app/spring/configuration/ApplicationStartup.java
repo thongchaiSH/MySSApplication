@@ -28,7 +28,7 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         LOGGER.info("ApplicationStartup.....!");
         LOGGER.info("Swagger UI : /swagger-ui.html");
-        LOGGER.info("Spring Data REST : /rest-api");
+        LOGGER.info("Spring Data REST : /rest");
 
 //        Demo
 //        appParameterRepository.deleteAll();

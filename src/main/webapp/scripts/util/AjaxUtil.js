@@ -52,6 +52,19 @@ AjaxUtil.get = function (strUrl, jsonData, bAsync) {
     return $.ajax(settings);
 };
 
+AjaxUtil.put = function (strUrl, jsonData, bAsync, eBackdrop) {
+
+    var options = {
+        type: "PUT",
+        url: session['context'] + strUrl,
+        data: jsonData,
+        async: bAsync
+    };
+
+    var settings = $.extend({}, pattern, options);
+    return $.ajax(settings);
+};
+
 AjaxUtil.delete = function (strUrl, jsonData, bAsync, eBackdrop) {
 
     var options = {

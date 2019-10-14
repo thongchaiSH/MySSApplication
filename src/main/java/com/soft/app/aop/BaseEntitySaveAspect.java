@@ -1,5 +1,6 @@
 package com.soft.app.aop;
 
+import com.soft.app.spring.security.AuthorizeUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,6 +8,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +19,10 @@ import java.util.Date;
 @Aspect
 @Component
 public class BaseEntitySaveAspect {
+
+    @Autowired
+    AuthorizeUtil authorizeUtil;
+
     private static final Logger LOGGER = LogManager.getLogger(BaseEntitySaveAspect.class);
 
     @Pointcut("execution(* org.springframework.data.jpa.repository.**.save*(..)) " +
@@ -27,7 +33,7 @@ public class BaseEntitySaveAspect {
     @Before("jpaRepositorySave()")
     public void addStampStandardField(JoinPoint jp) {
         String progId = "SYSTEM";
-        String user = "SYSTEM";
+        String user = authorizeUtil.getUserName();
         try {
             for (Object arg : jp.getArgs()) {
                 LOGGER.debug("addStandardFields: arg: " + arg.getClass().getName());

@@ -18,6 +18,7 @@ import org.springframework.security.cas.web.CasAuthenticationFilter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
@@ -58,6 +59,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         //auth.userDetailsService(userDetailsService);
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static/**");
+    }
+
     /**
      * 定义安全策略
      */
@@ -77,8 +83,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilter(casAuthenticationFilter())
                 .addFilterBefore(casLogoutFilter(), LogoutFilter.class)
                 .addFilterBefore(singleSignOutFilter(), CasAuthenticationFilter.class);
+        http.csrf().disable(); //禁用CSRF
 
-        //http.csrf().disable(); //禁用CSRF
+        http.authorizeRequests().antMatchers("/**").permitAll();
     }
 
     /**
@@ -151,7 +158,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-    
+
 /*@Bean
 	public UserDetailsService customUserDetailsService(){
 		return new CustomUserDetailsService();

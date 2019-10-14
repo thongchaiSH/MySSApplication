@@ -6,5 +6,39 @@
   To change this template use File | Settings | File Templates.
 -->
 <div xmlns:spring="http://www.springframework.org/tags"     xmlns:form="http://www.springframework.org/tags/form"  xmlns:c="http://java.sun.com/jsp/jstl/core"  xmlns:jsp="http://java.sun.com/JSP/Page"    version="2.0">
-    welcome23
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Softsquare</h2>
+        </div>
+        <!-- Basic Card -->
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            HRMS ESS <small>ระบบสอบถามข้อมูลการลา...</small>
+                        </h2>
+                        <ul class="header-dropdown m-r-0">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <i class="material-icons">info_outline</i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">Fav</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body" >
+                        <a  href="http://hrms.softsquaregroup.com:8998/HRMS_ESS/" target="_blank">HRMS ESS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
