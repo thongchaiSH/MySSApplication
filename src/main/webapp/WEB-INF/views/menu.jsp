@@ -64,18 +64,18 @@ To change this template use File | Settings | File Templates.
                     </a>
                 </li>
                  <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="${contextPath}/appuserfiles">
                         <i class="material-icons">folder</i>
                         <span>ไฟล์ของฉัน</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                        </li>
-                        <li>
-                            <a href="pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
-                        </li>
-                    </ul>
+                    <%--<ul class="ml-menu">--%>
+                        <%--<li>--%>
+                            <%--<a href="pages/forms/basic-form-elements.html">Basic Form Elements</a>--%>
+                        <%--</li>--%>
+                        <%--<li>--%>
+                            <%--<a href="pages/forms/advanced-form-elements.html">Advanced Form Elements</a>--%>
+                        <%--</li>--%>
+                    <%--</ul>--%>
                 </li>
 
                 <li>

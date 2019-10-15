@@ -24,6 +24,7 @@
         <template id="template">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="card">
+                    <!--<div class="header bg-red">-->
                     <div class="header">
                         <h2>#NAME<small>#DESC</small>
                         </h2>

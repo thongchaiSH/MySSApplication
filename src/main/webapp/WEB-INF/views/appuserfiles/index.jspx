@@ -1,0 +1,68 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: thongchai
+  Date: 4/5/2562
+  Time: 20:10 น.
+  To change this template use File | Settings | File Templates.
+-->
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>My File</h2>
+        </div>
+        <!-- Basic Card -->
+        <div class="row clearfix">
+            <div id="select">
+                <jsp:text/>
+            </div>
+            <div id="selector">
+                <jsp:text/>
+            </div>
+            <div id="files">
+                <jsp:text/>
+            </div>
+        </div>
+    </div>
+
+
+    <spring:url value="/resources/styles/jquery.simplefilebrowser.css" var="jquery_simplefilebrowser_css"/>
+    <link href="${jquery_simplefilebrowser_css}" type="text/css" rel="stylesheet"/>
+
+    <spring:url value="/resources/styles/font-awesome.css" var="font_awesome_css"/>
+    <link href="${font_awesome_css}" type="text/css" rel="stylesheet"/>
+
+
+    <spring:url value="/resources/scripts/jquery.simplefilebrowser.js" var="jquery_simplefilebrowser_js"/>
+    <script src="${jquery_simplefilebrowser_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+    <!--<spring:url value="/resources/scripts/musica.js" var="musica_js"/>-->
+
+    <script>
+        $().ready(function(){
+
+            $("#files").simpleFileBrowser({
+                url: music.php,
+                path: '/',
+                view: 'icon',
+                select: false,
+                breadcrumbs: true,
+                onSelect: function (obj, file, folder, type) {
+                    $("#select").html("You select a "+type+" "+folder+'/'+file);
+                },
+                onOpen: function (obj,file, folder, type) {
+                    if (type=='file') {
+                        alert("Open file: "+folder+'/'+file);
+                    }
+                }
+            });
+            $(".data").simpleDatePicker({
+                date.selected:'today'
+        });
+
+        });
+
+
+    </script>
+
+</div>
