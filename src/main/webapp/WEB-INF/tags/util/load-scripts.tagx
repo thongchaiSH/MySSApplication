@@ -1,0 +1,63 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes" />
+    <!-- Load CSS -->
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+
+    <!-- Google Fonts -->
+    <link href="/resources/font/roboto.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap Core Css -->
+    <link href="/resources/plugins/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Waves Effect Css -->
+    <link href="/resources/plugins/node-waves/waves.css" type="text/css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="/resources/plugins/animate-css/animate.css" type="text/css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="/resources/plugins/morrisjs/morris.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="/resources/css/style.css" type="text/css" rel="stylesheet"/>
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/resources/css/themes/all-themes.css" type="text/css" rel="stylesheet" />
+
+
+    <!-- Load JS -->
+
+
+    <!-- Jquery Core Js -->
+    <spring:url value="/resources/plugins/jquery/jquery.min.js" var="jquery_min_js"/>
+    <script src="${jquery_min_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Bootstrap Core Js -->
+    <spring:url value="/resources/plugins/bootstrap/js/bootstrap.js" var="bootstrap_js"/>
+    <script src="${bootstrap_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Select Plugin Js -->
+    <spring:url value="/resources/plugins/bootstrap-select/js/bootstrap-select.js" var="bootstrap_select_js"/>
+    <script src="${bootstrap_select_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Slimscroll Plugin Js -->
+    <spring:url value="/resources/plugins/jquery-slimscroll/jquery.slimscroll.js" var="jquery_slimscroll_js"/>
+    <script src="${jquery_slimscroll_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Waves Effect Plugin Js -->
+    <spring:url value="/resources/plugins/node-waves/waves.js" var="waves_js"/>
+    <script src="${waves_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Jquery CountTo Plugin Js -->
+    <spring:url value="/resources/plugins/jquery-countto/jquery.countTo.js" var="jquery_countTo_js"/>
+    <script src="${jquery_countTo_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Morris Plugin Js -->
+    <spring:url value="/resources/plugins/raphael/raphael.min.js" var="raphael_min_js"/>
+    <script src="${raphael_min_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <spring:url value="/resources/plugins/morrisjs/morris.js" var="morris_js"/>
+    <script src="${morris_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <!-- Sparkline Chart Plugin Js -->
+    <spring:url value="/resources/plugins/jquery-sparkline/jquery.sparkline.js" var="jquery_sparkline_js"/>
+    <script src="${jquery_sparkline_js}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+
+
+</jsp:root>
